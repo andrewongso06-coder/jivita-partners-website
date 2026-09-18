@@ -43,13 +43,11 @@
   .wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
 
   /* justified prose */
-  .hero p.lead, .card p, .problem-conclusion, .definition .def-sub, .fact p,
-  .section-head p, .benefit-card p, .step p, .sim-caveat, .carry-note,
-  .reflect-grid p, .reflect-close, .contact-card p{
+  .hero p.lead, .card p, .problem-conclusion, .definition .def-sub,
+  .section-head p, .benefit-card p, .sim-caveat, .carry-note,
+  .reflect-simple p, .contact-card p, .split-label{
     text-align:justify;
     text-justify:inter-word;
-    hyphens:auto;
-    -webkit-hyphens:auto;
   }
   .eyebrow{
     font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
@@ -263,29 +261,10 @@
 
   /* ---------- REFLEKSI ---------- */
   .reflect{ background:var(--ink); color:var(--paper); }
-  .reflect h2{ color:var(--paper); font-size:30px; margin-bottom:40px; max-width:700px; }
-  .reflect-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
-  .reflect-grid > *{ min-width:0; }
-  .reflect-grid p{ font-size:15px; color:var(--muted-on-ink); margin-bottom:16px; line-height:1.65; }
-  .reflect-box{ background:var(--ink2); border:1px solid var(--gold); border-radius:12px; padding:30px; }
-  .reflect-box-label{
-    font-size:11.5px; letter-spacing:1.6px; text-transform:uppercase; color:var(--gold-soft);
-    font-weight:600; margin-bottom:18px;
-  }
-  .reflect-box ul{ list-style:none; }
-  .reflect-box li{
-    position:relative; padding-left:24px; font-size:14.5px; color:var(--paper);
-    line-height:1.6; margin-bottom:18px;
-  }
-  .reflect-box li:last-child{ margin-bottom:0; }
-  .reflect-box li::before{
-    content:""; position:absolute; left:0; top:9px; width:8px; height:8px;
-    border-radius:50%; background:var(--gold-soft);
-  }
-  .reflect-close{
-    margin-top:40px; padding-top:28px; border-top:1px solid var(--ink-line);
-    font-family:'Lora',serif; font-style:italic; font-size:17px; color:var(--paper); max-width:820px;
-  }
+  .reflect h2{ color:var(--paper); font-size:30px; margin-bottom:32px; max-width:760px; }
+  .reflect-simple{ max-width:760px; }
+  .reflect-simple p{ font-size:15.5px; color:var(--muted-on-ink); margin-bottom:18px; line-height:1.7; }
+  .reflect-simple p:last-child{ margin-bottom:0; }
 
   /* ---------- STATS ---------- */
   .stats-band{ background:var(--ink); color:var(--paper); }
@@ -318,7 +297,7 @@
     section{ padding:64px 0; }
     .hero{ padding:88px 0 64px 0; }
     .hero h1{ font-size:32px; }
-    .problem-grid, .benefit-grid, .agency-flex, .fee-flex, .contact-grid, .reflect-grid{ grid-template-columns:1fr; }
+    .problem-grid, .benefit-grid, .agency-flex, .fee-flex, .contact-grid{ grid-template-columns:1fr; }
     .syarat-list{ grid-template-columns:1fr; }
     .sim-summary{ grid-template-columns:1fr 1fr; }
     .sum-card{ padding:14px; }
@@ -327,14 +306,19 @@
     .simulator{ padding:22px 16px; }
     .sim-toolbar{ flex-direction:column; gap:18px; }
     .reflect h2{ font-size:24px; }
-    .reflect-box{ padding:22px; }
-    .reflect-close{ font-size:15px; }
     .facts, .steps{ grid-template-columns:1fr; }
     .stats-grid{ grid-template-columns:1fr 1fr; row-gap:32px; }
     .nav-links, .nav-cta{ display:none; }
     .menu-toggle{ display:block; }
     .definition h2{ font-size:24px; }
     .section-head h2{ font-size:26px; }
+  }
+  @media(max-width:640px){
+    .hero p.lead, .card p, .problem-conclusion, .definition .def-sub,
+    .section-head p, .benefit-card p, .sim-caveat, .carry-note,
+    .reflect-simple p, .contact-card p, .split-label{
+      text-align:left;
+    }
   }
   #mobileMenu{
     display:none; flex-direction:column; gap:2px; background:var(--paper); border-top:1px solid var(--line);
@@ -376,7 +360,7 @@
 <section class="hero" id="top">
   <div class="wrap hero-inner">
     <h1>Jembatan <span class="accent">Trust</span> antara Brand dan Agency</h1>
-    <p class="lead">Jivita Partners menjembatani dan menghubungkan brand partners dengan founder-led agency partner yang telah diverifikasi dengan kriteria, untuk mengakomodasi pipeline dan demand dari BAIK Digital yang saat ini penuh dan berkomitmen melayani existing brand partners.</p>
+    <p class="lead">Jivita Partners mempertemukan founder-led brand dengan agency partner yang dikurasi oleh BAIK Digital. Kami mempelajari kebutuhan dan cara kerja kedua pihak sebelum membuat perkenalan, agar kerja sama dimulai dari kecocokan dan kepercayaan.</p>
     <div class="hero-ctas">
       <a href="#brand" class="btn btn-gold">Saya Brand →</a>
       <a href="#agency" class="btn btn-outline">Saya Agency Founder →</a>
@@ -396,20 +380,20 @@
         <p>Seringkali saat BAIK Digital belum bisa mengakomodasi, kenyataannya banyak brand akhirnya mencari agency lain dan berujung kerja sama yang kurang memuaskan: bertemu agency yang overclaim saat pitching, eksekusi general, hubungan kerja sama yang terasa seperti vendor, bukan partner.</p>
       </div>
       <div class="card">
-        <h4>Agency yang kekurangan demand</h4>
-        <p>Banyak agency founder-led yang foundernya masih involve langsung di project, persis seperti BAIK Digital.</p>
-        <p>Standar delivery mereka setara BAIK Digital, tapi mereka kekurangan leads dan calon brand partners yang jumlahnya belum konsisten untuk bisa terus bertumbuh.</p>
+        <h4>Agency yang ingin bertemu brand yang tepat</h4>
+        <p>Ada agency founder-led dengan standar kerja dan keterlibatan founder yang kuat. Namun, menemukan brand dengan kebutuhan, ekspektasi, dan cara kerja yang selaras juga membutuhkan waktu.</p>
+        <p>Jivita Partners membantu mempertemukan mereka dengan brand yang tepat, agar kedua pihak bisa fokus membangun hasil bersama.</p>
       </div>
     </div>
-    <p class="problem-conclusion"><b>Jivita Partners menghubungkan keduanya:</b> kelebihan demand di satu sisi, kekurangan demand di sisi lain.</p>
+    <p class="problem-conclusion"><b>Jivita Partners mempertemukan keduanya:</b> brand yang butuh partner tepat, dan agency yang ingin bertemu brand yang selaras.</p>
   </div>
 </section>
 
 <section class="definition" id="apa-itu">
   <div class="wrap">
     <span class="eyebrow on-ink">Definisi</span>
-    <h2>Jembatan <span class="accent">Trust</span> antara Brand dan Agency</h2>
-    <p class="def-sub">Program kemitraan yang menghubungkan brand dengan agency founder-led yang qualified dan verified by BAIK Digital, dan menyalurkan demand yang belum bisa dicover oleh BAIK Digital ke tempat terpercaya.</p>
+    <h2>Ringkasnya begini.</h2>
+    <p class="def-sub">Jivita Partners adalah program kemitraan yang mempertemukan founder-led brand dengan agency partner yang dikurasi oleh BAIK Digital. Kami membantu kedua pihak menilai kecocokan, memulai kerja sama dengan ekspektasi yang jelas, dan bertumbuh melalui pendampingan strategi serta keselarasan hasil.</p>
     <p class="def-caption">Created by BAIK Digital, 2026</p>
     <div class="facts">
       <div class="fact">
@@ -435,8 +419,8 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Untuk Brand</span>
-      <h2>Berhenti gonta-ganti agency dan termakan janji manis.</h2>
-      <p>Di Jivita Partners, bukan list dari ratusan agency untuk disortir sendiri. Kami mengkurasi satu partner yang paling relevan dengan kebutuhan Anda.</p>
+      <h2>Temukan agency partner yang tepat untuk tahap bisnis Anda.</h2>
+      <p>Memilih agency adalah keputusan penting. Di Jivita Partners, Anda tidak perlu menyortir daftar panjang sendiri. Kami mempelajari kebutuhan dan karakteristik bisnis Anda, lalu memperkenalkan satu agency partner yang menurut kami paling relevan. Jika belum ada yang cocok, kami akan menyampaikannya dengan jujur.</p>
     </div>
 
     <div class="benefit-grid">
@@ -453,15 +437,15 @@
         <p>3 bulan pertama dinilai dari kesiapan dan alignment operasional, bukan hasil revenue, karena hasil nyata butuh waktu untuk diproses.</p>
       </div>
       <div class="benefit-card">
-        <h4>Recurring fee agency bergaransi</h4>
-        <p>Biaya recurring agency 3 bulan pertama dijamin penuh oleh Jivita Partners. Apabila tidak memuaskan, akan dibayarkan oleh Jivita Partners.</p>
+        <h4>Komitmen kami di tiga bulan pertama</h4>
+        <p>Tiga bulan pertama adalah waktu untuk membangun ritme kerja dan menilai kecocokan kedua pihak. Jika kerja sama tidak berjalan sesuai standar yang disepakati sejak awal, Jivita Partners menanggung recurring fee agency untuk periode tersebut sesuai ketentuan kerja sama. Ini adalah komitmen terhadap kualitas kemitraan, bukan janji hasil revenue instan.</p>
       </div>
     </div>
 
     <div class="callout syarat-box" style="margin-bottom:56px;">
       <b>Syarat brand:</b>
       <ul class="syarat-list">
-        <li>Bukan yang mencari hasil instan dan janji manis, melainkan process oriented.</li>
+        <li>Memahami bahwa pertumbuhan berkelanjutan membutuhkan proses, pengujian, dan kerja sama aktif.</li>
         <li>Minimal sudah berjalan 12 bulan riwayat penjualan dengan baseline yang jelas.</li>
         <li>Founder brand terlibat langsung dalam menjalankan brand, terbuka untuk brainstorming, dan sadar penuh bahwa ini kerja kolektif, bukan cuma agency yang bekerja.</li>
         <li>Berorientasi jangka panjang.</li>
@@ -485,7 +469,7 @@
       <div class="fee-notes">
         <div class="fee-note"><div class="dot"></div><div>Recurring fee dibayar langsung ke agency partner. Jivita tidak mengambil bagian apa pun dari sini.</div></div>
         <div class="fee-note"><div class="dot"></div><div>Tier performance fee dihitung ulang tiap bulan (reset bulanan), bukan akumulasi tahunan.</div></div>
-        <div class="fee-note"><div class="dot"></div><div>Baseline = bulan yang sama tahun lalu ditambah 10%. Performance fee baru dicharge di atas angka itu.</div></div>
+        <div class="fee-note"><div class="dot"></div><div>Baseline = bulan yang sama tahun lalu ditambah 10% (tingkat standar, dapat didiskusikan). Performance fee baru dicharge di atas angka itu.</div></div>
         <div class="fee-note"><div class="dot"></div><div>Performance fee dicharge sesuai target ROMI (Return on Marketing Investment) yang disepakati bersama.</div></div>
       </div>
     </div>
@@ -640,7 +624,7 @@
           </tbody>
         </table>
       </div>
-      <p class="carry-note">Lompatan dari Rp500 juta ke Rp800 juta terjadi karena kerja sama ini. Angka itu adalah pencapaian, bukan standar baru.</p>
+      <p class="carry-note">Lompatan dari Rp500 juta ke Rp800 juta terjadi karena kerja sama ini. Angka itu adalah pencapaian, bukan standar baru. Angka 10% di sini adalah tingkat standar kami; besarannya terbuka untuk didiskusikan dan disesuaikan dengan karakteristik bisnis Anda saat kerja sama disepakati.</p>
     </div>
   </div>
 </section>
@@ -649,24 +633,14 @@
 <section class="reflect">
   <div class="wrap">
     <span class="eyebrow on-ink">Sebelum Kita Mulai</span>
-    <h2>Satu hal yang perlu disepakati sejak awal.</h2>
-    <div class="reflect-grid">
-      <div>
-        <p>Performance fee bergerak mengikuti hasil. Di awal mungkin di angka Rp20 sampai 30 juta per bulan. Kalau kerja samanya berhasil, angka itu bisa menyentuh Rp100 juta per bulan. Tarifnya tidak naik, revenue Anda yang naik.</p>
-        <p>Kami pernah sampai di titik itu, dan kerja sama justru berakhir ketika angkanya membesar. Itu pelajaran yang kami bawa ke sini, dan alasan kami membicarakannya di awal.</p>
-      </div>
-      <div class="reflect-box">
-        <div class="reflect-box-label">Pertanyaan refleksi</div>
-        <ul>
-          <li>Kalau performance fee menyentuh Rp100 juta per bulan karena revenue Anda tumbuh berkali lipat, apakah angka itu masih terasa adil?</li>
-          <li>Anda melihat fee ini sebagai biaya yang perlu ditekan, atau bagian dari hasil yang dibangun bersama?</li>
-          <li>Kalau ada keraguan, apakah Anda bersedia membicarakannya sekarang?</li>
-        </ul>
-      </div>
+    <h2>Mari sepakati cara memandang performance fee sejak awal.</h2>
+    <div class="reflect-simple">
+      <p>Performance fee dihitung dari pertumbuhan revenue di atas baseline dan mengikuti ketentuan ROMI yang disepakati bersama. Karena itu, ketika pertumbuhan bisnis semakin besar, nominal fee juga dapat meningkat meskipun persentasenya tetap mengikuti tier yang sama.</p>
+      <p>Kami menunjukkan perhitungannya sejak awal agar Anda bisa menilai apakah model ini sesuai dengan cara Anda ingin bertumbuh. Jika ada pertanyaan atau keberatan, mari bahas sebelum kerja sama dimulai. Hubungan jangka panjang lebih mudah dibangun ketika kedua pihak memahami dan merasa nyaman dengan kesepakatannya.</p>
     </div>
-    <p class="reflect-close">Kalau jawabannya tidak, tidak perlu dilanjutkan. Kami lebih memilih tahu sekarang.</p>
   </div>
 </section>
+
 
 <section class="stats-band">
   <div class="wrap">
@@ -691,12 +665,12 @@
     <div class="contact-grid">
       <div class="contact-card">
         <h3>Saya Brand</h3>
-        <p>Pastikan sudah membaca seluruh informasi di atas dengan seksama dan teliti, lalu sampaikan kebutuhan Anda. Kami akan coba mempelajari dan melihat apakah kami dapat mengakomodasi kebutuhan Anda.</p>
+        <p>Ceritakan kebutuhan dan tahap bisnis Anda. Kami akan mempelajarinya dan menghubungi Anda jika melihat peluang kerja sama yang sesuai.</p>
         <a class="btn btn-outline-dark" id="mailBrand" href="#">Sampaikan kebutuhan Anda →</a>
       </div>
       <div class="contact-card">
         <h3>Saya Agency Founder</h3>
-        <p>Pastikan sudah membaca seluruh informasi di atas dengan seksama dan teliti, lalu ceritakan perjalanan agency Anda. Apabila match dengan kriteria dan kualifikasi BAIK Digital, mari berkarya melalui Jivita Partners.</p>
+        <p>Ceritakan perjalanan, spesialisasi, dan cara kerja agency Anda. Kami akan mempelajarinya sebelum mengajak Anda berdiskusi lebih lanjut.</p>
         <a class="btn btn-outline-dark" id="mailAgency" href="#">Ceritakan perjalanan Anda →</a>
       </div>
     </div>
