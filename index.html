@@ -294,6 +294,7 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:900px){
+    .fact p, .step p{ text-align:justify; text-justify:inter-word; }
     section{ padding:64px 0; }
     .hero{ padding:88px 0 64px 0; }
     .hero h1{ font-size:32px; }
@@ -312,13 +313,6 @@
     .menu-toggle{ display:block; }
     .definition h2{ font-size:24px; }
     .section-head h2{ font-size:26px; }
-  }
-  @media(max-width:640px){
-    .hero p.lead, .card p, .problem-conclusion, .definition .def-sub,
-    .section-head p, .benefit-card p, .sim-caveat, .carry-note,
-    .reflect-simple p, .contact-card p, .split-label{
-      text-align:left;
-    }
   }
   #mobileMenu{
     display:none; flex-direction:column; gap:2px; background:var(--paper); border-top:1px solid var(--line);
@@ -426,7 +420,7 @@
     <div class="benefit-grid">
       <div class="benefit-card">
         <h4>Satu partner yang tepat</h4>
-        <p>Direkomendasikan berdasarkan kebutuhan dan karakteristik bisnis Anda.</p>
+        <p>Sesuai kebutuhan dan karakteristik bisnis Anda saat ini.</p>
       </div>
       <div class="benefit-card">
         <h4>Pendampingan strategi</h4>
