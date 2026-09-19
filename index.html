@@ -45,7 +45,7 @@
   /* justified prose */
   .hero p.lead, .card p, .problem-conclusion, .definition .def-sub,
   .section-head p, .benefit-card p, .sim-caveat, .carry-note,
-  .reflect-simple p, .contact-card p, .split-label{
+  .reflect-simple p, .contact-card p, .split-label, .analogy-box p{
     text-align:justify;
     text-justify:inter-word;
   }
@@ -194,6 +194,7 @@
   .sim-toolbar{ display:flex; gap:32px; flex-wrap:wrap; margin-bottom:26px; padding-bottom:24px; border-bottom:1px solid var(--line); }
   .sim-toolbar-left{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
   .sim-toolbar-left label{ font-size:13px; font-weight:600; color:var(--text-dark); }
+  .rate-hint{ font-size:11.5px; color:var(--sage); }
   .input-rp{
     display:flex; align-items:center; border:1.5px solid var(--line); border-radius:8px; padding:0 12px; background:var(--paper);
   }
@@ -258,6 +259,15 @@
   table.carry-table td:first-child{ font-weight:600; color:var(--text-dark); }
   table.carry-table td.accent-cell{ color:var(--gold); font-weight:600; }
   .carry-note{ font-size:13.5px; color:var(--text-body); margin-top:18px; line-height:1.6; max-width:880px; }
+  .analogy-box{
+    margin-top:18px; max-width:880px; background:rgba(169,121,31,0.07); border:1px solid var(--gold);
+    border-radius:10px; padding:18px 22px;
+  }
+  .analogy-label{
+    display:block; font-family:'Poppins',sans-serif; font-size:11.5px; font-weight:600;
+    letter-spacing:1.4px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;
+  }
+  .analogy-box p{ font-size:13.5px; color:var(--text-dark); line-height:1.6; margin:0; }
 
   /* ---------- REFLEKSI ---------- */
   .reflect{ background:var(--ink); color:var(--paper); }
@@ -463,7 +473,7 @@
       <div class="fee-notes">
         <div class="fee-note"><div class="dot"></div><div>Recurring fee dibayar langsung ke agency partner. Jivita tidak mengambil bagian apa pun dari sini.</div></div>
         <div class="fee-note"><div class="dot"></div><div>Tier performance fee dihitung ulang tiap bulan (reset bulanan), bukan akumulasi tahunan.</div></div>
-        <div class="fee-note"><div class="dot"></div><div>Baseline = bulan yang sama tahun lalu ditambah 10% (tingkat standar, dapat didiskusikan). Performance fee baru dicharge di atas angka itu.</div></div>
+        <div class="fee-note"><div class="dot"></div><div>Baseline = bulan yang sama tahun lalu ditambah 10 sampai 30%, tergantung historical data dan diskusi. Performance fee baru dicharge di atas angka itu.</div></div>
         <div class="fee-note"><div class="dot"></div><div>Performance fee dicharge sesuai target ROMI (Return on Marketing Investment) yang disepakati bersama.</div></div>
       </div>
     </div>
@@ -533,7 +543,7 @@
     <div class="section-head">
       <span class="eyebrow">Simulasi</span>
       <h2>Kira-kira fee-nya jadi berapa?</h2>
-      <p>Isi revenue Januari sampai Desember tahun lalu, lalu estimasi tahun ini. Baseline dihitung per bulan (tahun lalu + 10%), dan performance fee hanya berlaku di atas baseline itu.</p>
+      <p>Isi revenue Januari sampai Desember tahun lalu, lalu estimasi tahun ini. Baseline dihitung per bulan (tahun lalu ditambah tingkat kenaikan di bawah), dan performance fee hanya berlaku di atas baseline itu.</p>
     </div>
 
     <div class="simulator">
@@ -547,6 +557,11 @@
           <label for="growthPct">Estimasi pertumbuhan tahun ini</label>
           <div class="input-rp compact"><input type="text" id="growthPct" inputmode="numeric" value="60"><span class="suffix">%</span></div>
           <button class="preset-btn" id="applyGrowth">Terapkan ke 12 bulan</button>
+        </div>
+        <div class="sim-toolbar-left">
+          <label for="baselineRate">Tingkat kenaikan baseline</label>
+          <div class="input-rp compact"><input type="text" id="baselineRate" inputmode="numeric" value="10"><span class="suffix">%</span></div>
+          <span class="rate-hint">10 sampai 30%, tergantung historical data</span>
         </div>
       </div>
 
@@ -602,8 +617,8 @@
     <div class="carryover">
       <div class="section-head" style="margin-bottom:20px;">
         <span class="eyebrow">Baseline Tahun Berikutnya</span>
-        <h3 style="font-size:24px;">Baseline naik 10% per tahun, bukan mengikuti angka aktual.</h3>
-        <p>Kalau baseline direset ke revenue aktual setiap tahun, hasil kerja tahun sebelumnya berubah menjadi titik nol yang harus dilampaui lagi. Baseline yang naik 10% menjaga dua hal sekaligus: brand tetap tidak dikenakan fee atas pertumbuhan organik yang wajar, dan kontribusi yang sudah terbukti tidak hilang dari perhitungan.</p>
+        <h3 style="font-size:24px;">Baseline tumbuh sendiri, bukan mengekor hasil kerja kami.</h3>
+        <p>Baseline naik 10 sampai 30% setiap tahun dari baseline sebelumnya, tergantung historical data dan diskusi, bukan dari revenue aktual. Prinsipnya sederhana: hasil yang kami ciptakan tetap terhitung sebagai pertumbuhan, bukan jadi beban baru yang harus dikejar lagi tahun berikutnya.</p>
       </div>
       <div class="table-scroll">
         <table class="carry-table">
@@ -618,7 +633,11 @@
           </tbody>
         </table>
       </div>
-      <p class="carry-note">Lompatan dari Rp500 juta ke Rp800 juta terjadi karena kerja sama ini. Angka itu adalah pencapaian, bukan standar baru. Angka 10% di sini adalah tingkat standar kami; besarannya terbuka untuk didiskusikan dan disesuaikan dengan karakteristik bisnis Anda saat kerja sama disepakati.</p>
+      <p class="carry-note">Rp500 juta menjadi Rp800 juta adalah bukti kerja sama ini berjalan, bukan level normal yang baru. Tingkat kenaikannya sendiri (10 sampai 30%) ditentukan dari historical data bisnis Anda dan disepakati bersama, bukan angka tunggal yang dipukul rata.</p>
+      <div class="analogy-box">
+        <span class="analogy-label">Analoginya</span>
+        <p>Makin cepat bisnis Anda sudah tumbuh sendiri secara historis, makin tinggi juga baseline-nya, mendekati 30%. Kalau trennya lebih stabil, baseline-nya mendekati 10%. Dengan begitu, performance fee hanya dihitung dari percepatan ekstra yang benar-benar kami ciptakan, bukan dari momentum yang memang sudah berjalan sebelum kami masuk.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -627,10 +646,10 @@
 <section class="reflect">
   <div class="wrap">
     <span class="eyebrow on-ink">Sebelum Kita Mulai</span>
-    <h2>Mari sepakati cara memandang performance fee sejak awal.</h2>
+    <h2>Cara kami memandang performance fee.</h2>
     <div class="reflect-simple">
-      <p>Performance fee dihitung dari pertumbuhan revenue di atas baseline dan mengikuti ketentuan ROMI yang disepakati bersama. Karena itu, ketika pertumbuhan bisnis semakin besar, nominal fee juga dapat meningkat meskipun persentasenya tetap mengikuti tier yang sama.</p>
-      <p>Kami menunjukkan perhitungannya sejak awal agar Anda bisa menilai apakah model ini sesuai dengan cara Anda ingin bertumbuh. Jika ada pertanyaan atau keberatan, mari bahas sebelum kerja sama dimulai. Hubungan jangka panjang lebih mudah dibangun ketika kedua pihak memahami dan merasa nyaman dengan kesepakatannya.</p>
+      <p>Performance fee kami hitung dari pertumbuhan revenue di atas baseline, mengikuti ketentuan ROMI yang disepakati bersama. Ketika bisnis Anda tumbuh besar, fee ikut membesar, bukan karena tarif naik, tapi karena hasilnya nyata.</p>
+      <p>Kami percaya kemitraan yang baik dimulai dari kejelasan, bukan kejutan di kemudian hari. Model ini kami tunjukkan sejak awal, dan kami terbuka mendiskusikannya sebelum kerja sama dimulai, bukan sesudah.</p>
     </div>
   </div>
 </section>
@@ -776,9 +795,14 @@
   // Quick-fill controls
   const fillLast = document.getElementById('fillLast');
   const growthPct = document.getElementById('growthPct');
+  const baselineRate = document.getElementById('baselineRate');
   attachLiveFormat(fillLast);
   growthPct.addEventListener('input', () => {
     growthPct.value = growthPct.value.replace(/[^0-9]/g, "");
+  });
+  baselineRate.addEventListener('input', () => {
+    baselineRate.value = baselineRate.value.replace(/[^0-9]/g, "");
+    calculate();
   });
 
   document.getElementById('applyFillLast').addEventListener('click', () => {
@@ -798,11 +822,12 @@
 
   function calculate(){
     let totLast = 0, totBase = 0, totThis = 0, totInc = 0, totFee = 0;
+    const rate = Math.min(30, Math.max(10, parseInt(baselineRate.value || "10", 10))) / 100;
 
     for(let i = 0; i < 12; i++){
       const last = parseRupiah(lastInputs[i].value);
       const cur  = parseRupiah(thisInputs[i].value);
-      const base = last * 1.1;
+      const base = last * (1 + rate);
       const inc  = Math.max(0, cur - base);
       const fee  = tieredFee(inc);
 
